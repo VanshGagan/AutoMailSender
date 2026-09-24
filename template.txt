@@ -2,7 +2,7 @@ Guten Tag {contact},
 
 mein Name ist Vansh Gagan und ich studiere Informatik an der Universität Zürich.
 
-Ich bin aktuell auf der Suche nach einem Praktikum im Sommer 2027 und wollte mich erkundigen, ob {company} für diesen Zeitraum Praktikumsplätze im Bereich Informatik anbietet.
+Ich bin aktuell auf der Suche nach einem Praktikum im Sommer 2027 und wollte mich erkundigen, ob {contact} für diesen Zeitraum Praktikumsplätze im Bereich Informatik anbietet.
 
 Falls ja, würde ich mich sehr gerne mit meinen Bewerbungsunterlagen bei Ihnen bewerben.
 

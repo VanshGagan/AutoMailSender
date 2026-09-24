@@ -8,12 +8,12 @@ def load_template():
 
 
 def sending_algo():
-    body = load_template()
     service = sender.authenticate()
     with open("test.csv", newline="") as file:
         reader = csv.DictReader(file)
 
         for row in reader:
+            body = load_template().format(contact=row["company"])
             print(row["company"])
             #print(row["email"])
             sender.send_email(service, row["email"], body)
