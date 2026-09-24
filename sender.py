@@ -37,11 +37,11 @@ def authenticate():
     return build("gmail", "v1", credentials=creds)
 
 
-def send_email(service, reciever, content):
+def send_email(service, reciever, subject, content):
     message = EmailMessage()
 
     message["To"] = reciever
-    message["Subject"] = "Test – Internship Outreach"
+    message["Subject"] = subject
     message.set_content(content)
     encoded_message = base64.urlsafe_b64encode(
         message.as_bytes()
@@ -52,7 +52,7 @@ def send_email(service, reciever, content):
         body={"raw": encoded_message}
     ).execute()
 
-    print("✓ E-Mail gesendet!")
+    print("✓ E-Mail sent!")
 
 
 #service = authenticate()

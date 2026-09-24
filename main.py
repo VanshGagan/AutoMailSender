@@ -7,7 +7,7 @@ def load_template():
         return file.read()
 
 
-def sending_algo():
+def sending_algo(subject):
     service = sender.authenticate()
     with open("test.csv", newline="") as file:
         reader = csv.DictReader(file)
@@ -16,8 +16,15 @@ def sending_algo():
             body = load_template().format(contact=row["company"])
             print(row["company"])
             #print(row["email"])
-            sender.send_email(service, row["email"], body)
+            sender.send_email(service, row["email"], subject, body)
 
-sending_algo()
+
+def main():
+    print("Welcome to the automated EMAIL sender")
+    subject = input("\n\nWhat should the subject of the emails be?:   ")
+    sending_algo(subject)
+
+if __name__ == "__main__":
+    main()
 
 
