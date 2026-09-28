@@ -1,13 +1,15 @@
 import sender
 import csv
+import sys
 
 
-def load_template():
+
+def load_template(template):
     with open("template.txt", encoding="utf-8") as file:
         return file.read()
 
 
-def sending_algo(subject):
+def sending_algo(subject, template):
     service = sender.authenticate()
     with open("test.csv", newline="") as file:
         reader = csv.DictReader(file)
@@ -20,9 +22,13 @@ def sending_algo(subject):
 
 
 def main():
+    if len(sys.argv) != 2:
+        print("Error... Usage: main.py <template.txt>")
+        exit()
+
     print("Welcome to the automated EMAIL sender")
     subject = input("\n\nWhat should the subject of the emails be?:   ")
-    sending_algo(subject)
+    sending_algo(subject, sys.argv[1])
 
 if __name__ == "__main__":
     main()
