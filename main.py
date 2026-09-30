@@ -9,9 +9,9 @@ def load_template(template):
         return file.read()
 
 
-def sending_algo(subject, template):
+def sending_algo(subject, template, sending_list):
     service = sender.authenticate()
-    with open("test.csv", newline="") as file:
+    with open(sending_list, newline="") as file:
         reader = csv.DictReader(file)
 
         for row in reader:
@@ -22,13 +22,13 @@ def sending_algo(subject, template):
 
 
 def main():
-    if len(sys.argv) != 2:
-        print("Error... Usage: main.py <template.txt>")
+    if len(sys.argv) != 3:
+        print("Error... Usage: main.py <template.txt> <list.csv>")
         exit()
 
     print("Welcome to the automated EMAIL sender")
     subject = input("\n\nWhat should the subject of the emails be?:   ")
-    sending_algo(subject, sys.argv[1])
+    sending_algo(subject, sys.argv[1], sys.argv[2])
 
 if __name__ == "__main__":
     main()
